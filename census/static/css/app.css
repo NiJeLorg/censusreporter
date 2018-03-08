@@ -47,8 +47,6 @@ html {
     background-color: #ccc;
 }
 html,
-button,
-input,
 select,
 textarea {
     color: #0f0f10;
@@ -334,20 +332,7 @@ a.action-button,
     cursor: pointer;
 }
 
-#page-footer {
-    background-color: #ccc;
-    border-top: 1px solid #686867;
-    padding: 1.5em 0 4.5em;
-}
-#page-footer ul {
-    margin: 0;
-    padding-left: 1em;
-}
-#page-footer ul.ul-icon-list {
-    padding-left: 0;
-    text-align: center;
-    line-height: 2;
-}
+
 .content-container {
     padding: 2em 0;
     clear: both;
@@ -1396,14 +1381,14 @@ select,
 .select-wrapper,
 .filter-group,
 .item-chosen {
-    background-color: #fff;
+    /* background-color: #fff;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
     border: 1px solid #686867;
     height: 2.2em;
     line-height: 1em;
-    padding: .5em;
+    padding: .5em; */
 }
 form input[type="text"],
 form select {
@@ -2800,12 +2785,6 @@ blockquote {
         width: 47%;
         margin-right: 3%;
     }
-    #page-footer ul.ul-icon-list {
-        text-align: left;
-    }
-    #page-footer li {
-        margin-bottom: .5em;
-    }
     #geography-picker .column-quarter,
     #query-geography-picker .column-quarter {
         width: 100%;
@@ -3007,4 +2986,17 @@ a.ui-button:active,
 
 #filters > a {
     font-size: 1.2em;
+}
+
+
+#profile {
+    display: none;
+}
+
+#homepage {
+    /* display: none; */
+}
+
+.content-container {
+    /* display: none; */
 }

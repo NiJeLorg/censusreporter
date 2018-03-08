@@ -121,6 +121,8 @@ nav .container {
     margin: 0 auto;
 }
 
+
+
 .c-intro-panel .beta-button {
     margin-right: 90px;
 }
@@ -676,7 +678,7 @@ footer .designed-by span {
         font-size: 12px;
     }
     nav {
-        display: block;
+        display: none;
         padding: 0;
         position: fixed;
         right: 0;

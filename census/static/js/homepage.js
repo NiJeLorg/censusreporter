@@ -34,6 +34,8 @@ let mobileToggle = () => {
     let contentWidth;
 
     if (!isNavOpen) {
+        $('body').css('overflow', 'hidden');        
+        $(nav).css('display', 'block');
         contentWidth = $('.main-container').width();
         $('.main-container').css('width', contentWidth);
 
