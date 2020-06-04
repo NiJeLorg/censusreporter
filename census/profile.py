@@ -30,7 +30,10 @@ class ApiClient(object):
 		time.sleep(1)
 		if r.status_code == 200:
 			data = r.json(object_pairs_hook=OrderedDict)
+			print(data)
 		else:
+			data = r.json(object_pairs_hook=OrderedDict)
+			print(data)
 			raise Exception("Error fetching data: " + r.json().get("error"))
 
 		return data

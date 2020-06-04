@@ -633,7 +633,7 @@ $.ajaxSetup({
 var flaggedMOE = $('.stat-row sup'),
     daggerNote = '<p><sup>&dagger;</sup> Margin of error is at least 10 percent of the total value. Take care with this statistic.</p>';
 
-flaggedMOE.closest('.stat-row').find('aside').html(daggerNote);
+flaggedMOE.closest('.stat-row').find('aside').append(daggerNote);
 
 // Enable the single-table topic picker
 var thisSumlev = '{{ geography.this.sumlevel }}',
