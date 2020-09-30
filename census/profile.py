@@ -30,10 +30,8 @@ class ApiClient(object):
 		time.sleep(1)
 		if r.status_code == 200:
 			data = r.json(object_pairs_hook=OrderedDict)
-			print(data)
 		else:
 			data = r.json(object_pairs_hook=OrderedDict)
-			print(data)
 			raise Exception("Error fetching data: " + r.json().get("error"))
 
 		return data
@@ -2049,9 +2047,12 @@ def geo_profile(geoid, acs='latest'):
 
 		# add a few last things
 		# make square miles http://www.census.gov/geo/www/geo_defn.html#AreaMeasurement
-		square_miles = get_division(geo_metadata['aland'], 2589988)
-		if square_miles < .1:
-			square_miles = get_division(geo_metadata['aland'], 2589988, 3)
+		if geo_metadata['aland'] == 0:
+			square_miles = 0
+		else:
+			square_miles = get_division(geo_metadata['aland'], 2589988)
+			if square_miles < .1:
+				square_miles = get_division(geo_metadata['aland'], 2589988, 3)
 		total_pop = doc['geography']['this']['total_population']
 		population_density = get_division(total_pop, get_division(geo_metadata['aland'], 2589988, -1))
 		doc['geo_metadata']['square_miles'] = square_miles
