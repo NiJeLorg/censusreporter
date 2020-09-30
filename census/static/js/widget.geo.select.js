@@ -4,7 +4,7 @@ if (!spinnerTarget) {
     spinnerTarget = document.getElementById('body-spinner');
 } 
 
-var geoSearchAPI = CR_API_URL + '/1.0/geo/search',
+var geoSearchAPI = FREE_TEXT_SEARCH_API_URL + '/2.1/full-text/search',
     geoSelect = $('.geography-select'),
     chosenSumlevAncestorList = '040,050,060,250,252,254,310,500,610,620,860,950,960,970';
 
