@@ -2236,6 +2236,7 @@ function Comparison(options, callback) {
                 } else {
                     apiURL = comparison.dataAPI + 'latest'
                 }
+                console.log(apiURL);
                 $.getJSON(apiURL, params)
                     .done(function(results) {
                         comparison.data = comparison.cleanData(results);
