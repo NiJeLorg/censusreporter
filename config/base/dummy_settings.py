@@ -82,6 +82,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.messages.context_processors.messages',
                 'census.context_processors.api_url',
+                'census.context_processors.free_text_search_api_url',
             ],
         },
     },
