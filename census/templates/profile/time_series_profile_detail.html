@@ -196,7 +196,7 @@
         </section>
         <section class="clearfix stat-row grouped-row alt">
             <aside></aside>
-              <div class="column-full" id="chart-column_timeseries-housing-units-demo_month_distribution" data-stat-type="scaled-percentage" data-chart-title="Structure demolition by month" data-qualifier="Universe: {{ profile_data_current_year.housing.units.demo_month_distribution.metadata.universe }}"></div>
+              <div class="column-full" id="chart-column_timeseries-housing-units-demo_month_distribution" data-stat-type="scaled-percentage" data-chart-title="Demolitions by month" data-qualifier="Universe: {{ profile_data_current_year.housing.units.demo_month_distribution.metadata.universe }}"></div>
         </section>
         <section class="clearfix stat-row">
             <aside>
@@ -237,7 +237,7 @@
         <section class="clearfix stat-row grouped-row">
             <aside></aside>
               <div class="column-full">
-                  <div id="chart-column_timeseries-housing-units-sale_type_distribution" data-stat-type="scaled-percentage" data-chart-title="Percentage of property sales by type" data-qualifier="Universe: {{ profile_data_current_year.housing.units.sale_type_distribution.metadata.universe }}"></div>
+                  <div id="chart-column_timeseries-housing-units-sale_type_distribution" data-stat-type="scaled-percentage" data-chart-title="Percentage of property sales by terms of sale" data-qualifier="Universe: {{ profile_data_current_year.housing.units.sale_type_distribution.metadata.universe }}"></div>
               </div>
         </section>
 
@@ -275,7 +275,7 @@
         <section class="clearfix stat-row grouped-row">
             <aside></aside>
               <div class="column-full">
-                  <div id="chart-column_timeseries-housing-units-sale_type_dollar_distribution" data-stat-type="dollar" data-label="no" data-chart-title="Property sales amounts by type" data-qualifier="Universe: {{ profile_data_current_year.housing.units.sale_type_dollar_distribution.metadata.universe }}"></div>
+                  <div id="chart-column_timeseries-housing-units-sale_type_dollar_distribution" data-stat-type="dollar" data-label="no" data-chart-title="Property sales amounts by terms of sale" data-qualifier="Universe: {{ profile_data_current_year.housing.units.sale_type_dollar_distribution.metadata.universe }}"></div>
               </div>
         </section>
     </div>
@@ -385,16 +385,16 @@
         <section class="clearfix stat-row grouped-row">
             <aside></aside>
               <div class="column-third">
-                  <div id="chart-column_timeseries-housing-units-dlba_auction_buyer_type_distrubution" data-stat-type="scaled-percentage" data-chart-title="Distribution of DLBA buyer by type" data-qualifier="Universe: {{ profile_data_current_year.housing.units.dlba_auction_buyer_type_distrubution.metadata.universe }}"></div>
+                  <div id="chart-column_timeseries-housing-units-dlba_auction_buyer_type_distrubution" data-stat-type="scaled-percentage" data-chart-title="Distribution of DLBA auction buyer by type" data-qualifier="Universe: {{ profile_data_current_year.housing.units.dlba_auction_buyer_type_distrubution.metadata.universe }}"></div>
               </div>
               <div class="column-two-thirds">
-                  <div id="chart-column_timeseries-housing-units-dlba_auction_price_distrubution" data-stat-type="scaled-percentage" data-chart-title="Distribution of DLBA sale prices" data-qualifier="Universe: {{ profile_data_current_year.housing.units.dlba_auction_price_distrubution.metadata.universe }}"></div>
+                  <div id="chart-column_timeseries-housing-units-dlba_auction_price_distrubution" data-stat-type="scaled-percentage" data-chart-title="Distribution of DLBA auction sale prices" data-qualifier="Universe: {{ profile_data_current_year.housing.units.dlba_auction_price_distrubution.metadata.universe }}"></div>
               </div>
         </section>
         <section class="clearfix stat-row grouped-row alt">
             <aside></aside>
               <div class="column-full">
-                  <div id="chart-column_timeseries-housing-units-dlba_cp_type_distrubution" data-stat-type="scaled-percentage" data-chart-title="Distribution of DLBA sales to  community partners by property classes" data-qualifier="Universe: {{ profile_data_current_year.housing.units.dlba_cp_type_distrubution.metadata.universe }}"></div>
+                  <div id="chart-column_timeseries-housing-units-dlba_cp_type_distrubution" data-stat-type="scaled-percentage" data-chart-title="Distribution of DLBA sales to community partners by property classes" data-qualifier="Universe: {{ profile_data_current_year.housing.units.dlba_cp_type_distrubution.metadata.universe }}"></div>
               </div>
         </section>
 
@@ -462,11 +462,11 @@
             <aside>
             </aside>
               <div class="column-third">
-                  <div id="chart-stat_timeseries-housing-units-upheld_blight_tickets" data-stat-type="scaled-percentage" data-chart-title="Percentage of tickets upheld by court" data-qualifier="Universe: {{ profile_data_current_year.housing.units.upheld_blight_tickets.metadata.universe }}"></div>
+                  {% comment %} <div id="chart-stat_timeseries-housing-units-upheld_blight_tickets" data-stat-type="scaled-percentage" data-chart-title="Percentage of tickets upheld by court" data-qualifier="Universe: {{ profile_data_current_year.housing.units.upheld_blight_tickets.metadata.universe }}"></div> {% endcomment %}
                   {% comment %} {% include 'profile/_blocks/_stat_list.html' with stat=housing.units.upheld_blight_tickets stat_type='percentage' %} {% endcomment %}
               </div>
               <div class="column-two-thirds">
-                  <div id="chart-column_timeseries-housing-units-upheld_ticket_distribution" data-stat-type="scaled-percentage" data-chart-title="Payment status for upheld blight violations" data-qualifier="Universe: {{ profile_data_current_year.housing.units.upheld_ticket_distribution.metadata.universe }}"></div>
+                  {% comment %} <div id="chart-column_timeseries-housing-units-upheld_ticket_distribution" data-stat-type="scaled-percentage" data-chart-title="Total amount of blight tickets upheld by court by payment status" data-qualifier="Universe: {{ profile_data_current_year.housing.units.upheld_ticket_distribution.metadata.universe }}"></div> {% endcomment %}
               </div>
         </section>
 
@@ -474,11 +474,11 @@
             <aside>
             </aside>
               <div class="column-third">
-                  <div id="chart-stat_timeseries-housing-units-amount_due" data-stat-type="dollar" data-chart-title="Total amount due for blight tickets upheld by court" data-qualifier="Universe: {{ profile_data_current_year.housing.units.amount_due.metadata.universe }}"></div>
+                  {% comment %} <div id="chart-stat_timeseries-housing-units-amount_due" data-stat-type="dollar" data-chart-title="Total amount due for blight tickets upheld by court" data-qualifier="Universe: {{ profile_data_current_year.housing.units.amount_due.metadata.universe }}"></div> {% endcomment %}
                   {% comment %} {% include 'profile/_blocks/_stat_list.html' with stat=housing.units.amount_due stat_type='dollar' %} {% endcomment %}
               </div>
               <div class="column-two-thirds">
-                  <div id="chart-column_timeseries-housing-units-owed_ticket_distribution" data-stat-type="dollar" data-chart-title="Payment status for blight tickets upheld by court" data-qualifier="Universe: {{ profile_data_current_year.housing.units.owed_ticket_distribution.metadata.universe }}"></div>
+                  {% comment %} <div id="chart-column_timeseries-housing-units-owed_ticket_distribution" data-stat-type="dollar" data-chart-title="Payment status for blight tickets upheld by court" data-qualifier="Universe: {{ profile_data_current_year.housing.units.owed_ticket_distribution.metadata.universe }}"></div> {% endcomment %}
               </div>
         </section>
 

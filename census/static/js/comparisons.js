@@ -2230,7 +2230,7 @@ function Comparison(options, callback) {
 
             } else {
                 // CR query
-                let apiURL
+                let apiURL;
                 if (comparison.releaseSlug) {
                     apiURL = comparison.dataAPI + comparison.releaseSlug
                 } else {
@@ -2263,6 +2263,7 @@ function Comparison(options, callback) {
 
         comparison.table = comparison.data.tables[comparison.tableID];
         comparison.release = comparison.data.release;
+        console
         comparison.values = comparison.data.data;
         comparison.thisSumlev = (!!comparison.primaryGeoID) ? comparison.primaryGeoID.substr(0,3) : null;
         comparison.statType = comparison.getStatType(),
@@ -3226,6 +3227,7 @@ function Comparison(options, callback) {
                     comparison.queryString = query;
                     url += 'q=' + query;
                 }
+                console.log("table search", url);
                 return url;
             },
             filter: function(response) {
@@ -3444,7 +3446,9 @@ function Comparison(options, callback) {
             if (!!comparison.tableID) {
                 comparison.trackEvent(comparison.capitalize(comparison.dataFormat)+' View', 'Change table', comparison.tableID);
 
-                window.location = comparison.buildComparisonURL();
+                console.log(datum);
+
+                //window.location = comparison.buildComparisonURL();
             }
         });
 
@@ -3887,7 +3891,9 @@ function Comparison(options, callback) {
             tableID = tableID || comparison.tableID,
             geoIDs = geoIDs || comparison.geoIDs,
             primaryGeoID = primaryGeoID || comparison.primaryGeoID
-            releaseSlug = comparison.releaseSlug || 'latest';
+            releaseSlug = comparison.release.id || 'latest';
+
+        console.log(comparison);
 
         var url = '/data/'+dataFormat+'/?table='+tableID;
         if (!!geoIDs) {

@@ -1491,212 +1491,212 @@ def geo_profile(geoid, acs='latest'):
 			item_levels_minus_county_state.append(level)
 
 	print(d3_comparison_geoids)
+
 	# Vacant properties
-	data = api.get_data('B25999', d3_comparison_geoids , d3_schema)
+	data = api.get_data('B25961', d3_comparison_geoids , d3_schema)
 	acs_name = data['release']['name']
 	acs_year = data['release']['years']
 
 	units_dict['number_vacant'] = build_item('Total number of vacant housing units', data, item_levels_minus_county_state,
-		'B25999003')
-	add_metadata(units_dict['number_vacant'], 'B25999', 'Total number of vacant housing units', 'Valassis VNEF Plus Database; ' + acs_name, acs_year)
+		'B25961003')
+	add_metadata(units_dict['number_vacant'], 'B25961', 'Total number of vacant housing units', 'Valassis VNEF Plus Database; ' + acs_name, acs_year)
 
 	units_dict['percent_vacant'] = build_item('Percent of housing units vacant', data, item_levels_minus_county_state,
-		'B25999003 B25999001 / %')
-	add_metadata(units_dict['percent_vacant'], 'B25999', 'Total number of vacant housing units', 'Valassis VNEF Plus Database; ' + acs_name, acs_year)
+		'B25961003 B25961001 / %')
+	add_metadata(units_dict['percent_vacant'], 'B25961', 'Total number of vacant housing units', 'Valassis VNEF Plus Database; ' + acs_name, acs_year)
 
 
 	# Demolitions
-	data = api.get_data('B25998', d3_comparison_geoids, d3_schema)
+	data = api.get_data(['B25958', 'B25959', 'B25960', 'B25961'], d3_comparison_geoids, d3_schema)
 	acs_name = data['release']['name']
 	acs_year = data['release']['years']
 
 	units_dict['number_demos'] = build_item('Total number of demolitions', data, item_levels_minus_county_state,
-		'B25998001')
-	add_metadata(units_dict['number_demos'], 'B25998', 'Total number of demolitions', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
+		'B25959001')
+	add_metadata(units_dict['number_demos'], 'B25959', 'Total number of demolitions', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
 
 	units_dict['median_demo_cost'] = build_item('Median demolition cost', data, item_levels_minus_county_state,
-		'B25998022')
-	add_metadata(units_dict['median_demo_cost'], 'B25998', 'Total number of demolitions', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
-
+		'B25958002')
+	add_metadata(units_dict['median_demo_cost'], 'B25958', 'Total number of demolitions', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
 
 	demo_company_distribution = OrderedDict()
 	units_dict['demo_company_distribution'] = demo_company_distribution
-	add_metadata(demo_company_distribution, 'B25998', 'Total housing unit demolitions', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
+	add_metadata(demo_company_distribution, 'B25960', 'Total housing unit demolitions', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
 
 	demo_company_distribution['adamo'] = build_item('Adamo Group, Inc', data, item_levels_minus_county_state,
-		'B25998002 B25998001 / %')
+		'B25960002 B25960001 / %')
 	demo_company_distribution['homrich'] = build_item('Homrich', data, item_levels_minus_county_state,
-		'B25998003 B25998001 / %')
+		'B25960003 B25960001 / %')
 	demo_company_distribution['dmc'] = build_item('DMC Consultants', data, item_levels_minus_county_state,
-		'B25998004 B25998001 / %')
+		'B25960004 B25960001 / %')
 	demo_company_distribution['able'] = build_item('Able Demolition', data, item_levels_minus_county_state,
-		'B25998005 B25998001 / %')
+		'B25960005 B25960001 / %')
 	demo_company_distribution['rickman'] = build_item('Rickman Enterprise Group', data, item_levels_minus_county_state,
-		'B25998006 B25998001 / %')
+		'B25960006 B25960001 / %')
 	demo_company_distribution['salebein'] = build_item('Salebein Trucking & Excavating', data, item_levels_minus_county_state,
-		'B25998007 B25998001 / %')
+		'B25960007 B25960001 / %')
 	demo_company_distribution['other'] = build_item('Other Demolition Contractor', data, item_levels_minus_county_state,
-		'B25998008 B25998001 / %')
+		'B25960008 B25960001 / %')
 
 	demo_month_distribution = OrderedDict()
 	units_dict['demo_month_distribution'] = demo_month_distribution
-	add_metadata(demo_month_distribution, 'B25998', 'Total housing unit demolitions', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
+	add_metadata(demo_month_distribution, 'B25959', 'Total housing unit demolitions', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
 
 	demo_month_distribution['january'] = build_item('January', data, item_levels_minus_county_state,
-		'B25998009 B25998001 / %')
+		'B25959002 B25959001 / %')
 	demo_month_distribution['february'] = build_item('February', data, item_levels_minus_county_state,
-		'B25998010 B25998001 / %')
+		'B25959003 B25959001 / %')
 	demo_month_distribution['march'] = build_item('March', data, item_levels_minus_county_state,
-		'B25998011 B25998001 / %')
+		'B25959004 B25959001 / %')
 	demo_month_distribution['april'] = build_item('April', data, item_levels_minus_county_state,
-		'B25998012 B25998001 / %')
+		'B25959005 B25959001 / %')
 	demo_month_distribution['may'] = build_item('May', data, item_levels_minus_county_state,
-		'B25998013 B25998001 / %')
+		'B25959006 B25959001 / %')
 	demo_month_distribution['june'] = build_item('June', data, item_levels_minus_county_state,
-		'B25998014 B25998001 / %')
+		'B25959007 B25959001 / %')
 	demo_month_distribution['july'] = build_item('July', data, item_levels_minus_county_state,
-		'B25998015 B25998001 / %')
+		'B25959008 B25959001 / %')
 	demo_month_distribution['august'] = build_item('August', data, item_levels_minus_county_state,
-		'B25998016 B25998001 / %')
+		'B25959009 B25959001 / %')
 	demo_month_distribution['september'] = build_item('September', data, item_levels_minus_county_state,
-		'B25998017 B25998001 / %')
+		'B25959010 B25959001 / %')
 	demo_month_distribution['october'] = build_item('October', data, item_levels_minus_county_state,
-		'B25998018 B25998001 / %')
+		'B25959011 B25959001 / %')
 	demo_month_distribution['november'] = build_item('November', data, item_levels_minus_county_state,
-		'B25998019 B25998001 / %')
+		'B25959012 B25959001 / %')
 	demo_month_distribution['december'] = build_item('December', data, item_levels_minus_county_state,
-		'B25998020 B25998001 / %')
+		'B25959013 B25959001 / %')
 
 
 	# Building Permits
-	data = api.get_data('B25997', d3_comparison_geoids , d3_schema)
+	data = api.get_data(['B25956', 'B25957'], d3_comparison_geoids , d3_schema)
 	acs_name = data['release']['name']
 	acs_year = data['release']['years']
 
 	units_dict['number_permits'] = build_item('Total number of building permits', data, item_levels_minus_county_state,
-		'B25997001')
-	add_metadata(units_dict['number_permits'], 'B25997', 'Total number of building permits', 'Detroit Buildings, Safety Engineering and Environmental Department (BSEED); ' + acs_name, acs_year)
+		'B25957001')
+	add_metadata(units_dict['number_permits'], 'B25957', 'Total number of building permits', 'Detroit Buildings, Safety Engineering and Environmental Department (BSEED); ' + acs_name, acs_year)
 
 	units_dict['median_permit_cost'] = build_item('Median estimated permit cost', data, item_levels_minus_county_state,
-		'B25997012')
-	add_metadata(units_dict['median_permit_cost'], 'B25997', 'Total number of building permits', 'Detroit Buildings, Safety Engineering and Environmental Department (BSEED); ' + acs_name, acs_year)	
+		'B25956004')
+	add_metadata(units_dict['median_permit_cost'], 'B25956', 'Total number of building permits', 'Detroit Buildings, Safety Engineering and Environmental Department (BSEED); ' + acs_name, acs_year)	
 
 	permit_type_distribution = OrderedDict()
 	units_dict['permit_type_distribution'] = permit_type_distribution
-	add_metadata(permit_type_distribution, 'B25997', 'Total number of building permits', 'Detroit Buildings, Safety Engineering and Environmental Department (BSEED); ' + acs_name, acs_year)
+	add_metadata(permit_type_distribution, 'B25957', 'Total number of building permits', 'Detroit Buildings, Safety Engineering and Environmental Department (BSEED); ' + acs_name, acs_year)
 
 	permit_type_distribution['alterations'] = build_item('Alterations', data, item_levels_minus_county_state,
-		'B25997002 B25997001 / %')	
+		'B25957002 B25957001 / %')	
 	permit_type_distribution['dismantle'] = build_item('Dismantle', data, item_levels_minus_county_state,
-		'B25997003 B25997001 / %')
+		'B25957003 B25957001 / %')
 	permit_type_distribution['repairs'] = build_item('Repairs', data, item_levels_minus_county_state,
-		'B25997004 B25997001 / %')
+		'B25957004 B25957001 / %')
 	permit_type_distribution['fire_repairs'] = build_item('Fire Repairs', data, item_levels_minus_county_state,
-		'B25997005 B25997001 / %')
+		'B25957005 B25957001 / %')
 	permit_type_distribution['sign_erection'] = build_item('Sign Erection', data, item_levels_minus_county_state,
-		'B25997006 B25997001 / %')			
+		'B25957006 B25957001 / %')			
 	permit_type_distribution['new'] = build_item('New', data, item_levels_minus_county_state,
-		'B25997007 B25997001 / %')	
+		'B25957007 B25957001 / %')	
 	permit_type_distribution['other'] = build_item('Other', data, item_levels_minus_county_state,
-		'B25997008 B25997001 / %')
+		'B25957008 B25957001 / %')
 
 
 
 	# Blight Violations
-	data = api.get_data('B25996', d3_comparison_geoids , d3_schema)
+	data = api.get_data(['B25972', 'B25973', 'B25974', 'B25975', 'B25976', 'B25977'], d3_comparison_geoids , d3_schema)
 	acs_name = data['release']['name']
 	acs_year = data['release']['years']
 
 	units_dict['number_blight_tickets'] = build_item('Total number of blight tickets', data, item_levels_minus_county_state,
-		'B25996001')
-	add_metadata(units_dict['number_blight_tickets'], 'B25996', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)
+		'B25977001')
+	add_metadata(units_dict['number_blight_tickets'], 'B25977', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)
 
 	department_ticket_distribution = OrderedDict()
 	units_dict['department_ticket_distribution'] = department_ticket_distribution
-	add_metadata(units_dict['department_ticket_distribution'], 'B25996', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)
+	add_metadata(units_dict['department_ticket_distribution'], 'B25977', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)
 
 	department_ticket_distribution['building_dept'] = build_item('BSEED', data, item_levels_minus_county_state,
-		'B25996002 B25996001 / %')	
+		'B25977002 B25977001 / %')	
 	department_ticket_distribution['pw_dept'] = build_item('DPW', data, item_levels_minus_county_state,
-		'B25996003 B25996001 / %')	
+		'B25977003 B25977001 / %')	
 	department_ticket_distribution['police_dept'] = build_item('DPD', data, item_levels_minus_county_state,
-		'B25996004 B25996001 / %')	
+		'B25977004 B25977001 / %')	
 
 	ticket_month_distribution = OrderedDict()
 	units_dict['ticket_month_distribution'] = ticket_month_distribution
-	add_metadata(units_dict['ticket_month_distribution'], 'B25996', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)
+	add_metadata(units_dict['ticket_month_distribution'], 'B25976', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)
 
 	ticket_month_distribution['january'] = build_item('January', data, item_levels_minus_county_state,
-		'B25996005 B25996001 / %')
+		'B25976002 B25976001 / %')
 	ticket_month_distribution['february'] = build_item('February', data, item_levels_minus_county_state,
-		'B25996006 B25996001 / %')
+		'B25976003 B25976001 / %')
 	ticket_month_distribution['march'] = build_item('March', data, item_levels_minus_county_state,
-		'B25996007 B25996001 / %')
+		'B25976004 B25976001 / %')
 	ticket_month_distribution['april'] = build_item('April', data, item_levels_minus_county_state,
-		'B25996008 B25996001 / %')
+		'B25976005 B25976001 / %')
 	ticket_month_distribution['may'] = build_item('May', data, item_levels_minus_county_state,
-		'B25996009 B25996001 / %')
+		'B25976006 B25976001 / %')
 	ticket_month_distribution['june'] = build_item('June', data, item_levels_minus_county_state,
-		'B25996010 B25996001 / %')
+		'B25976007 B25976001 / %')
 	ticket_month_distribution['july'] = build_item('July', data, item_levels_minus_county_state,
-		'B25996011 B25996001 / %')
+		'B25976008 B25976001 / %')
 	ticket_month_distribution['august'] = build_item('August', data, item_levels_minus_county_state,
-		'B25996012 B25996001 / %')
+		'B25976009 B25976001 / %')
 	ticket_month_distribution['september'] = build_item('September', data, item_levels_minus_county_state,
-		'B25996013 B25996001 / %')
+		'B25976010 B25976001 / %')
 	ticket_month_distribution['october'] = build_item('October', data, item_levels_minus_county_state,
-		'B25996014 B25996001 / %')
+		'B25976011 B25976001 / %')
 	ticket_month_distribution['november'] = build_item('November', data, item_levels_minus_county_state,
-		'B25996015 B25996001 / %')
+		'B25976012 B25976001 / %')
 	ticket_month_distribution['december'] = build_item('December', data, item_levels_minus_county_state,
-		'B25996016 B25996001 / %')
+		'B25976013 B25976001 / %')
 
 
 	ticket_type_distribution = OrderedDict()
 	units_dict['ticket_type_distribution'] = ticket_type_distribution
-	add_metadata(units_dict['ticket_type_distribution'], 'B25996', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)
+	add_metadata(units_dict['ticket_type_distribution'], 'B25975', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)
 
 	ticket_type_distribution['no_cert'] = build_item('No cert. of compliance', data, item_levels_minus_county_state,
-		'B25996017 B25996001 / %')	
+		'B25975002 B25975001 / %')	
 	ticket_type_distribution['weeds'] = build_item('Weeds / plant growth', data, item_levels_minus_county_state,
-		'B25996018 B25996001 / %')	
+		'B25975003 B25975001 / %')	
 	ticket_type_distribution['waste'] = build_item('Bulk solid waste accumulation', data, item_levels_minus_county_state,
-		'B25996019 B25996001 / %')
+		'B25975004 B25975001 / %')
 	ticket_type_distribution['no_rental_cert'] = build_item('No rental cert.', data, item_levels_minus_county_state,
-		'B25996020 B25996001 / %')
+		'B25975005 B25975001 / %')
 	ticket_type_distribution['other'] = build_item('Other', data, item_levels_minus_county_state,
-		'B25996021 B25996001 / %')	
+		'B25975006 B25975001 / %')	
 
 
 	units_dict['upheld_blight_tickets'] = build_item('Percentage of tickets upheld by court', data, item_levels_minus_county_state,
-		'B25996022 B25996001 / %')
-	add_metadata(units_dict['upheld_blight_tickets'], 'B25996', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)	
+		'B25973001 B25974001 / %')
+	add_metadata(units_dict['upheld_blight_tickets'], 'B25974', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)	
 
 	upheld_ticket_distribution = OrderedDict()
 	units_dict['upheld_ticket_distribution'] = upheld_ticket_distribution
-	add_metadata(units_dict['upheld_ticket_distribution'], 'B25996', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)
+	add_metadata(units_dict['upheld_ticket_distribution'], 'B25973', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)
 
 	upheld_ticket_distribution['unpaid'] = build_item('Unpaid', data, item_levels_minus_county_state,
-		'B25996023 B25996001 / %')	
+		'B25973002 B25973001 / %')	
 	upheld_ticket_distribution['paid'] = build_item('Paid in full', data, item_levels_minus_county_state,
-		'B25996024 B25996001 / %')	
+		'B25973003 B25973001 / %')	
 	upheld_ticket_distribution['partially_paid'] = build_item('Partially paid', data, item_levels_minus_county_state,
-		'B25996025 B25996001 / %')	
+		'B25973004 B25973001 / %')	
 
 	units_dict['amount_due'] = build_item('Total amount due for blight tickets upheld by court', data, item_levels_minus_county_state,
-		'B25996026')
-	add_metadata(units_dict['amount_due'], 'B25996', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)	
+		'B25972001')
+	add_metadata(units_dict['amount_due'], 'B25972', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)	
 
 	owed_ticket_distribution = OrderedDict()
 	units_dict['owed_ticket_distribution'] = owed_ticket_distribution
-	add_metadata(units_dict['owed_ticket_distribution'], 'B25996', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)
+	add_metadata(units_dict['owed_ticket_distribution'], 'B25972', 'Total number of blight tickets', 'Detroit Department of Administrative Hearings; ' + acs_name, acs_year)
 
 	owed_ticket_distribution['unpaid'] = build_item('Unpaid', data, item_levels_minus_county_state,
-		'B25996027')	
+		'B25972002')	
 	owed_ticket_distribution['paid'] = build_item('Paid in full', data, item_levels_minus_county_state,
-		'B25996028')	
+		'B25972003')	
 	owed_ticket_distribution['partially_paid'] = build_item('Partially paid', data, item_levels_minus_county_state,
-		'B25996029')	
+		'B25972004')	
 
 
 	# Total Tax Foreclosures
@@ -1710,135 +1710,135 @@ def geo_profile(geoid, acs='latest'):
 
 
 	# Property Transactions
-	data = api.get_data('B25994', d3_comparison_geoids , d3_schema)
+	data = api.get_data(['B25963', 'B25965', 'B25966', 'B25967', 'B25969', 'B25970'], d3_comparison_geoids , d3_schema)
 	acs_name = data['release']['name']
 	acs_year = data['release']['years']
 
 	units_dict['number_property_sales'] = build_item('Total number of property sales', data, item_levels_minus_county_state,
-		'B25994001')
-	add_metadata(units_dict['number_property_sales'], 'B25994', 'Housing units', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+		'B25970001')
+	add_metadata(units_dict['number_property_sales'], 'B25970', 'Housing units', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 
 
 	sale_month_distribution = OrderedDict()
 	units_dict['sale_month_distribution'] = sale_month_distribution
-	add_metadata(sale_month_distribution, 'B25994', 'Total number of property sales', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+	add_metadata(sale_month_distribution, 'B25970', 'Total number of property sales', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 
 	sale_month_distribution['january'] = build_item('January', data, item_levels_minus_county_state,
-		'B25994002 B25994001 / %')
+		'B25970002 B25970001 / %')
 	sale_month_distribution['february'] = build_item('February', data, item_levels_minus_county_state,
-		'B25994003 B25994001 / %')
+		'B25970003 B25970001 / %')
 	sale_month_distribution['march'] = build_item('March', data, item_levels_minus_county_state,
-		'B25994004 B25994001 / %')
+		'B25970004 B25970001 / %')
 	sale_month_distribution['april'] = build_item('April', data, item_levels_minus_county_state,
-		'B25994005 B25994001 / %')
+		'B25970005 B25970001 / %')
 	sale_month_distribution['may'] = build_item('May', data, item_levels_minus_county_state,
-		'B25994006 B25994001 / %')
+		'B25970006 B25970001 / %')
 	sale_month_distribution['june'] = build_item('June', data, item_levels_minus_county_state,
-		'B25994007 B25994001 / %')
+		'B25970007 B25970001 / %')
 	sale_month_distribution['july'] = build_item('July', data, item_levels_minus_county_state,
-		'B25994008 B25994001 / %')
+		'B25970008 B25970001 / %')
 	sale_month_distribution['august'] = build_item('August', data, item_levels_minus_county_state,
-		'B25994009 B25994001 / %')
+		'B25970009 B25970001 / %')
 	sale_month_distribution['september'] = build_item('September', data, item_levels_minus_county_state,
-		'B25994010 B25994001 / %')
+		'B25970010 B25970001 / %')
 	sale_month_distribution['october'] = build_item('October', data, item_levels_minus_county_state,
-		'B25994011 B25994001 / %')
+		'B25970011 B25970001 / %')
 	sale_month_distribution['november'] = build_item('November', data, item_levels_minus_county_state,
-		'B25994012 B25994001 / %')
+		'B25970012 B25970001 / %')
 	sale_month_distribution['december'] = build_item('December', data, item_levels_minus_county_state,
-		'B25994013 B25994001 / %')
+		'B25970013 B25970001 / %')
 
 	sale_type_distribution = OrderedDict()
 	units_dict['sale_type_distribution'] = sale_type_distribution
-	add_metadata(sale_type_distribution, 'B25994', 'Total number of property sales', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+	add_metadata(sale_type_distribution, 'B25969', 'Total number of property sales', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 
 	sale_type_distribution['bank_sale_not_used'] = build_item('Bank sale not used', data, item_levels_minus_county_state,
-		'B25994014 B25994001 / %')
+		'B25969002 B25969001 / %')
 	sale_type_distribution['bank_sale_used'] = build_item('Bank sale used', data, item_levels_minus_county_state,
-		'B25994015 B25994001 / %')
+		'B25969003 B25969001 / %')
 	sale_type_distribution['exempt_government'] = build_item('Exempt', data, item_levels_minus_county_state,
-		'B25994016 B25994001 / %')
+		'B25969004 B25969001 / %')
 	sale_type_distribution['foreclosure_forfeit'] = build_item('Foreclosure', data, item_levels_minus_county_state,
-		'B25994017 B25994001 / %')
+		'B25969005 B25969001 / %')
 	sale_type_distribution['multi_parcel'] = build_item('Multi parcel', data, item_levels_minus_county_state,
-		'B25994018 B25994001 / %')
+		'B25969006 B25969001 / %')
 	sale_type_distribution['no_consideration'] = build_item('No consideration', data, item_levels_minus_county_state,
-		'B25994019 B25994001 / %')
+		'B25969007 B25969001 / %')
 	sale_type_distribution['not_arms_length'] = build_item('Not arms length', data, item_levels_minus_county_state,
-		'B25994020 B25994001 / %')
+		'B25969008 B25969001 / %')
 	sale_type_distribution['valid_arms_length'] = build_item('Valid arms length', data, item_levels_minus_county_state,
-		'B25994021 B25994001 / %')
+		'B25969009 B25969001 / %')
 	sale_type_distribution['special_acts'] = build_item('Special acts', data, item_levels_minus_county_state,
-		'B25994022 B25994001 / %')	
+		'B25969010 B25969001 / %')	
 	sale_type_distribution['other_sales_terms'] = build_item('Other sales terms', data, item_levels_minus_county_state,
-		'B25994023 B25994001 / %')
+		'B25969011 B25969001 / %')
 
 
 	sale_price_distribution = OrderedDict()
 	units_dict['sale_price_distribution'] = sale_price_distribution
-	add_metadata(sale_price_distribution, 'B25994', 'Total number of property sales', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+	add_metadata(sale_price_distribution, 'B25967', 'Total number of property sales', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 
 	sale_price_distribution['lt_1000'] = build_item('Less than $1,000', data, item_levels_minus_county_state,
-		'B25994028 B25994001 / %')
+		'B25967002 B25967001 / %')
 	sale_price_distribution['1000_5000'] = build_item('$1,000 - $4,999', data, item_levels_minus_county_state,
-		'B25994029 B25994001 / %')
+		'B25967003 B25967001 / %')
 	sale_price_distribution['5000_10000'] = build_item('$5,000 - $9,999', data, item_levels_minus_county_state,
-		'B25994030 B25994001 / %')
+		'B25967004 B25967001 / %')
 	sale_price_distribution['10000_25000'] = build_item('$10,000 - $24,999', data, item_levels_minus_county_state,
-		'B25994031 B25994001 / %')
+		'B25967005 B25967001 / %')
 	sale_price_distribution['25000_50000'] = build_item('$25,000 - $49,999', data, item_levels_minus_county_state,
-		'B25994032 B25994001 / %')
+		'B25967006 B25967001 / %')
 	sale_price_distribution['50000_100000'] = build_item('$50,000 - $99,999', data, item_levels_minus_county_state,
-		'B25994033 B25994001 / %')
+		'B25967007 B25967001 / %')
 	sale_price_distribution['100000_500000'] = build_item('$100,000 - $499,999', data, item_levels_minus_county_state,
-		'B25994034 B25994001 / %')
+		'B25967008 B25967001 / %')
 	sale_price_distribution['500000_1000000'] = build_item('$500,000 - $999,999', data, item_levels_minus_county_state,
-		'B25994035 B25994001 / %')
+		'B25967009 B25967001 / %')
 	sale_price_distribution['1000000_5000000'] = build_item('$1,000,000 - $4,999,999', data, item_levels_minus_county_state,
-		'B25994036 B25994001 / %')	
+		'B25967010 B25967001 / %')	
 	sale_price_distribution['gt_5000000'] = build_item('Greater than $5,000,000', data, item_levels_minus_county_state,
-		'B25994037 B25994001 / %')
+		'B25967011 B25967001 / %')
 
 	units_dict['total_property_sales'] = build_item('Total property sales', data, item_levels_minus_county_state,
-		'B25994038')
-	add_metadata(units_dict['total_property_sales'], 'B25994', 'Housing units', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+		'B25966001')
+	add_metadata(units_dict['total_property_sales'], 'B25966', 'Housing units', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 	
 	sale_type_dollar_distribution = OrderedDict()
 	units_dict['sale_type_dollar_distribution'] = sale_type_dollar_distribution
-	add_metadata(sale_type_dollar_distribution, 'B25994', 'Total number of property sales', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+	add_metadata(sale_type_dollar_distribution, 'B25965', 'Total number of property sales', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 
 	sale_type_dollar_distribution['bank_sale_not_used'] = build_item('Bank sale not used', data, item_levels_minus_county_state,
-		'B25994051')
+		'B25965002')
 	sale_type_dollar_distribution['bank_sale_used'] = build_item('Bank sale used', data, item_levels_minus_county_state,
-		'B25994052')
+		'B25965003')
 	sale_type_dollar_distribution['exempt_government'] = build_item('Exempt', data, item_levels_minus_county_state,
-		'B25994053')
+		'B25965004')
 	sale_type_dollar_distribution['foreclosure_forfeit'] = build_item('Foreclosure', data, item_levels_minus_county_state,
-		'B25994054')
+		'B25965005')
 	sale_type_dollar_distribution['multi_parcel'] = build_item('Multi parcel', data, item_levels_minus_county_state,
-		'B25994055')
+		'B25965006')
 	sale_type_dollar_distribution['no_consideration'] = build_item('No consideration', data, item_levels_minus_county_state,
-		'B25994056')
+		'B25965007')
 	sale_type_dollar_distribution['not_arms_length'] = build_item('Not arms length', data, item_levels_minus_county_state,
-		'B25994057')
+		'B25965008')
 	sale_type_dollar_distribution['valid_arms_length'] = build_item('Valid arms length', data, item_levels_minus_county_state,
-		'B25994058')
+		'B25965009')
 	sale_type_dollar_distribution['special_acts'] = build_item('Special acts', data, item_levels_minus_county_state,
-		'B25994059')	
+		'B25965010')	
 	sale_type_dollar_distribution['other_sales_terms'] = build_item('Other sales terms', data, item_levels_minus_county_state,
-		'B25994060')
+		'B25965011')
 
 	units_dict['min_price'] = build_item('Minimum price sold', data, item_levels_minus_county_state,
-		'B25994067')
-	add_metadata(units_dict['min_price'], 'B25994', 'Housing units', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+		'B25963002')
+	add_metadata(units_dict['min_price'], 'B25963', 'Housing units', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 
 	units_dict['max_price'] = build_item('Maximum price sold', data, item_levels_minus_county_state,
-		'B25994068')
-	add_metadata(units_dict['max_price'], 'B25994', 'Housing units', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+		'B25963003')
+	add_metadata(units_dict['max_price'], 'B25963', 'Housing units', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 
 	units_dict['median_price'] = build_item('Median price sold', data, item_levels_minus_county_state,
-		'B25994070')
-	add_metadata(units_dict['median_price'], 'B25994', 'Housing units', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+		'B25963005')
+	add_metadata(units_dict['median_price'], 'B25963', 'Housing units', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 
 
 	#voter age
@@ -1868,95 +1868,91 @@ def geo_profile(geoid, acs='latest'):
 
 
 	#Tax and Values
-	data = api.get_data('B25992', d3_comparison_geoids , d3_schema)
+	data = api.get_data(['B25982', 'B25983', 'B25984', 'B25985'], d3_comparison_geoids , d3_schema)
 	acs_name = data['release']['name']
 	acs_year = data['release']['years']
 	
 	units_dict['total_properties'] = build_item('Total properties', data, item_levels_minus_county_state,
-		'B25992001')
-	add_metadata(units_dict['total_properties'], 'B25992', 'Total properties', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+		'B25982001')
+	add_metadata(units_dict['total_properties'], 'B25982', 'Total properties', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 
 	sev_distribution = OrderedDict()
 	units_dict['sev_distribution'] = sev_distribution
-	add_metadata(sev_distribution, 'B25992', 'Housing units with SEV', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+	add_metadata(sev_distribution, 'B25985', 'Housing units with SEV', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 
 	sev_distribution['1_4000'] = build_item('$1-$4,000', data, item_levels_minus_county_state,
-		'B25992033 B25992032 / %')
+		'B25985003 B25985002 / %')
 	sev_distribution['4000_8000'] = build_item('$4,001 - $8,000', data, item_levels_minus_county_state,
-		'B25992034 B25992032 / %')
+		'B25985004 B25985002 / %')
 	sev_distribution['8000_12000'] = build_item('$8,001 - $12,000', data, item_levels_minus_county_state,
-		'B25992035 B25992032 / %')
+		'B25985005 B25985002 / %')
 	sev_distribution['12000_16000'] = build_item('$12,001 - $16,000', data, item_levels_minus_county_state,
-		'B25992036 B25992032 / %')
+		'B25985006 B25985002 / %')
 	sev_distribution['16000_20000'] = build_item('$16,001 - $20,000', data, item_levels_minus_county_state,
-		'B25992037 B25992032 / %')
+		'B25985007 B25985002 / %')
 	sev_distribution['20000_24000'] = build_item('$20,001 - $24,000', data, item_levels_minus_county_state,
-		'B25992038 B25992032 / %')
+		'B25985008 B25985002 / %')
 	sev_distribution['24000_28000'] = build_item('$24,001 - $28,000', data, item_levels_minus_county_state,
-		'B25992039 B25992032 / %')
+		'B25985009 B25985002 / %')
 	sev_distribution['28000_32000'] = build_item('$28,001 - $32,000', data, item_levels_minus_county_state,
-		'B25992040 B25992032 / %')
+		'B25985010 B25985002 / %')
 	sev_distribution['32000_36000'] = build_item('$32,001 - $36,000', data, item_levels_minus_county_state,
-		'B25992041 B25992032 / %')
+		'B25985011 B25985002 / %')
 	sev_distribution['36000_40000'] = build_item('$36,001 - $40,000', data, item_levels_minus_county_state,
-		'B25992042 B25992032 / %')
+		'B25985012 B25985002 / %')
 	sev_distribution['gt_40000'] = build_item('Greater than $40,000', data, item_levels_minus_county_state,
-		'B25992043 B25992032 / %')
+		'B25985013 B25985002 / %')
 	
 
 	pre_status_distribution = OrderedDict()
 	units_dict['pre_status_distribution'] = pre_status_distribution
-	add_metadata(pre_status_distribution, 'B25992', 'Properties for which PRE status was determined', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+	add_metadata(pre_status_distribution, 'B25983', 'Properties for which PRE status was determined', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 
 	pre_status_distribution['1'] = build_item('0%', data, item_levels_minus_county_state,
-		'B25992046')
-	pre_status_distribution['2'] = build_item('0.1%-49.9%', data, item_levels_minus_county_state,
-		'B25992047')
-	pre_status_distribution['3'] = build_item('50%', data, item_levels_minus_county_state,
-		'B25992048')
-	pre_status_distribution['4'] = build_item('50.1%-99.9%', data, item_levels_minus_county_state,
-		'B25992049')
-	pre_status_distribution['5'] = build_item('100%', data, item_levels_minus_county_state,
-		'B25992050')
+		'B25983002')
+	pre_status_distribution['2'] = build_item('0.1%-99.9%', data, item_levels_minus_county_state,
+		'B25983003 B25983004 + B25983005 +')
+	pre_status_distribution['3'] = build_item('100%', data, item_levels_minus_county_state,
+		'B25983006')
 
 
 	taxable_status_distribution = OrderedDict()
 	units_dict['taxable_status_distribution'] = taxable_status_distribution
-	add_metadata(taxable_status_distribution, 'B25992', 'Properties for which taxable status was determined', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+	add_metadata(taxable_status_distribution, 'B25982', 'Properties for which taxable status was determined', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 
 	taxable_status_distribution['taxable'] = build_item('Taxable', data, item_levels_minus_county_state,
-		'B25992052 B25992051 / %')
+		'B25982002 B25982001 / %')
 	taxable_status_distribution['government'] = build_item('Government', data, item_levels_minus_county_state,
-		'B25992053 B25992051 / %')
+		'B25982004 B25982001 / %')
 	taxable_status_distribution['pilot'] = build_item('Pilot', data, item_levels_minus_county_state,
-		'B25992065 B25992051 / %')
+		'B25982015 B25982001 / %')
 	taxable_status_distribution['hospital'] = build_item('Hospital', data, item_levels_minus_county_state,
-		'B25992066 B25992051 / %')
+		'B25982016 B25982001 / %')
 	taxable_status_distribution['charity'] = build_item('Charity', data, item_levels_minus_county_state,
-		'B25992067 B25992051 / %')
+		'B25982017 B25982001 / %')
 	taxable_status_distribution['religious'] = build_item('Religious', data, item_levels_minus_county_state,
-		'B25992068 B25992051 / %')
+		'B25982018 B25982001 / %')
 	taxable_status_distribution['education'] = build_item('Education', data, item_levels_minus_county_state,
-		'B25992069 B25992051 / %')
+		'B25982019 B25982001 / %')
 	taxable_status_distribution['project'] = build_item('Project', data, item_levels_minus_county_state,
-		'B25992070 B25992051 / %')
+		'B25982020 B25982001 / %')
 	taxable_status_distribution['railroad'] = build_item('Railroad', data, item_levels_minus_county_state,
-		'B25992071 B25992051 / %')
+		'B25982021 B25982001 / %')
 	taxable_status_distribution['other'] = build_item('Other', data, item_levels_minus_county_state,
-		'B25992072 B25992051 / %')
+		'B25982022 B25982001 / %')
 
 
 	units_dict['mean_sev_over_0'] = build_item('Mean SEV over $0', data, item_levels_minus_county_state,
-		'B25992097')
-	add_metadata(units_dict['mean_sev_over_0'], 'B25992', 'Total properties', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+		'B25984003')
+	add_metadata(units_dict['mean_sev_over_0'], 'B25984', 'Total properties', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 
 	units_dict['median_sev_over_0'] = build_item('Median SEV over $0', data, item_levels_minus_county_state,
-		'B25992098')
-	add_metadata(units_dict['median_sev_over_0'], 'B25992', 'Total properties', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+		'B25984004')
+	add_metadata(units_dict['median_sev_over_0'], 'B25984', 'Total properties', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 
 	units_dict['total_sev'] = build_item('Total SEV', data, item_levels_minus_county_state,
-		'B25992099')
-	add_metadata(units_dict['total_sev'], 'B25992', 'Total properties', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
+		'B25984009')
+	add_metadata(units_dict['total_sev'], 'B25984', 'Total properties', 'Detroit Assessor\'s Office; ' + acs_name, acs_year)
 
 
 	#DLBA Ownership
@@ -1965,76 +1961,77 @@ def geo_profile(geoid, acs='latest'):
 		acs_name = data['release']['name']
 		acs_year = data['release']['years']
 		
-		units_dict['dlba_total_properties'] = build_item('Total properties under DLBA ownership', data, item_levels_minus_county_state,
+		units_dict['dlba_total_properties'] = build_item('Total properties owned by the DLBA', data, item_levels_minus_county_state,
 			'B25991001')
-		add_metadata(units_dict['dlba_total_properties'], 'B25991', 'Total properties under DLBA ownership', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
+		add_metadata(units_dict['dlba_total_properties'], 'B25991', 'Total properties owned by the DLBA', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
 
 	#DLBA Sales
-	data = api.get_data('B25990', d3_comparison_geoids , d3_schema)
+	data = api.get_data(['B25978', 'B25979', 'B25980', 'B25981'], d3_comparison_geoids , d3_schema)
 	acs_name = data['release']['name']
 	acs_year = data['release']['years']	
 
 	units_dict['dlba_total_sales'] = build_item('Total DLBA sales', data, item_levels_minus_county_state,
-		'B25990001')
-	add_metadata(units_dict['dlba_total_sales'], 'B25990', 'Total DLBA sales', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
+		'B25981001')
+	add_metadata(units_dict['dlba_total_sales'], 'B25981', 'Total DLBA sales', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
 
 
 	dlba_sale_type_distrubution = OrderedDict()
 	units_dict['dlba_sale_type_distrubution'] = dlba_sale_type_distrubution
-	add_metadata(dlba_sale_type_distrubution, 'B25990', 'Total DLBA sales', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
+	add_metadata(dlba_sale_type_distrubution, 'B25981', 'Total DLBA sales', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
 
 	dlba_sale_type_distrubution['auction'] = build_item('Auction', data, item_levels_minus_county_state,
-		'B25990002 B25990001 / %')
+		'B25981002 B25981001 / %')
 	dlba_sale_type_distrubution['cp'] = build_item('Community partner', data, item_levels_minus_county_state,
-		'B25990015 B25990001 / %')
+		'B25981003 B25981001 / %')
 	dlba_sale_type_distrubution['side_lot'] = build_item('Side lot', data, item_levels_minus_county_state,
-		'B25990024 B25990001 / %')
-
+		'B25981004 B25981001 / %')
+	dlba_sale_type_distrubution['own_it_now'] = build_item('Own-it-now', data, item_levels_minus_county_state,
+		'B25981005 B25981001 / %')
 
 	dlba_auction_buyer_type_distrubution = OrderedDict()
 	units_dict['dlba_auction_buyer_type_distrubution'] = dlba_auction_buyer_type_distrubution
-	add_metadata(dlba_auction_buyer_type_distrubution, 'B25990', 'Total DLBA auction sales', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
+	add_metadata(dlba_auction_buyer_type_distrubution, 'B25980', 'Total DLBA auction sales', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
 
 	dlba_auction_buyer_type_distrubution['investor'] = build_item('Investor', data, item_levels_minus_county_state,
-		'B25990004 B25990002 / %')
+		'B25980003 B25980001 / %')
 	dlba_auction_buyer_type_distrubution['homebuyer'] = build_item('Homebuyer', data, item_levels_minus_county_state,
-		'B25990005 B25990002 / %')
+		'B25980004 B25980001 / %')
 	dlba_auction_buyer_type_distrubution['unknown'] = build_item('Unknown', data, item_levels_minus_county_state,
-		'B25990006 B25990002 / %')
+		'B25980005 B25980001 / %')
 
 	dlba_auction_price_distrubution = OrderedDict()
 	units_dict['dlba_auction_price_distrubution'] = dlba_auction_price_distrubution
-	add_metadata(dlba_auction_price_distrubution, 'B25990', 'DLBA auction sale price known', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
+	add_metadata(dlba_auction_price_distrubution, 'B25979', 'DLBA auction sale price known', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
 
 	dlba_auction_price_distrubution['lt_2000'] = build_item('Less than $1,999', data, item_levels_minus_county_state,
-		'B25990008 B25990007 / %')
+		'B25979003 B25979002 / %')
 	dlba_auction_price_distrubution['2_4k'] = build_item('$2,000 - $3,999', data, item_levels_minus_county_state,
-		'B25990009 B25990007 / %')
+		'B25979004 B25979002 / %')
 	dlba_auction_price_distrubution['4_6k'] = build_item('$4,000 - $5,999', data, item_levels_minus_county_state,
-		'B25990010 B25990007 / %')
+		'B25979005 B25979002 / %')
 	dlba_auction_price_distrubution['6_8k'] = build_item('$6,000 - $7,999', data, item_levels_minus_county_state,
-		'B25990011 B25990007 / %')
+		'B25979006 B25979002 / %')
 	dlba_auction_price_distrubution['8_10k'] = build_item('$8,000 - $9,999', data, item_levels_minus_county_state,
-		'B25990012 B25990007 / %')
+		'B25979007 B25979002 / %')
 	dlba_auction_price_distrubution['gt_10k'] = build_item('$10,000 or greater', data, item_levels_minus_county_state,
-		'B25990012 B25990007 / %')
+		'B25979008 B25979002 / %')
 
 	dlba_cp_type_distrubution = OrderedDict()
 	units_dict['dlba_cp_type_distrubution'] = dlba_cp_type_distrubution
-	add_metadata(dlba_cp_type_distrubution, 'B25990', 'DLBA community partner sale; property class known', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
+	add_metadata(dlba_cp_type_distrubution, 'B25978', 'DLBA community partner sale; property class known', 'Detroit Land Bank Authority (DLBA); ' + acs_name, acs_year)
 
 	dlba_cp_type_distrubution['accessory'] = build_item('Accessory structure', data, item_levels_minus_county_state,
-		'B25990017 B25990016 / %')
+		'B25978003 B25978002 / %')
 	dlba_cp_type_distrubution['commercial'] = build_item('Commercial structure', data, item_levels_minus_county_state,
-		'B25990018 B25990016 / %')
+		'B25978004 B25978002 / %')
 	dlba_cp_type_distrubution['residential_s'] = build_item('Residential structure', data, item_levels_minus_county_state,
-		'B25990019 B25990016 / %')
+		'B25978005 B25978002 / %')
 	dlba_cp_type_distrubution['industrial'] = build_item('Industrial structure', data, item_levels_minus_county_state,
-		'B25990020 B25990016 / %')
+		'B25978006 B25978002 / %')
 	dlba_cp_type_distrubution['residential_l'] = build_item('Residential lot', data, item_levels_minus_county_state,
-		'B25990021 B25990016 / %')
+		'B25978007 B25978002 / %')
 	dlba_cp_type_distrubution['non_residential_l'] = build_item('Non-residential lot', data, item_levels_minus_county_state,
-		'B25990022 B25990016 / %')
+		'B25978008 B25978002 / %')
 
 	#### END Housing Information Portal Parcel-based Data ####
 

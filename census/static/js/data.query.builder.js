@@ -683,10 +683,10 @@ function makeParentSelectWidget(element) {
 
 function sendToDataView(chosenTableID, chosenRelease, chosenGeoID, chosenSumlev) {
     // add spinner to page load 
-    spinner.spin(spinnerTarget);
-    var theseGeoIDs = (!!chosenSumlev) ? chosenSumlev + '|' + chosenGeoID : chosenGeoID,
-        targetURL = '/data/table/?table=' + chosenTableID + '&geo_ids=' + theseGeoIDs + '&primary_geo_id=' + chosenGeoID + '&release=' + chosenRelease;
-    window.location.href = targetURL;
+    // spinner.spin(spinnerTarget);
+    // var theseGeoIDs = (!!chosenSumlev) ? chosenSumlev + '|' + chosenGeoID : chosenGeoID,
+    //     targetURL = '/data/table/?table=' + chosenTableID + '&geo_ids=' + theseGeoIDs + '&primary_geo_id=' + chosenGeoID + '&release=' + chosenRelease;
+    // window.location.href = targetURL;
 }
 
 jQuery(document).ready(function(){
