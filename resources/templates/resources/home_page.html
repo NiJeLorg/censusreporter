@@ -1,0 +1,211 @@
+{% extends '_new_homepage_base.html' %}{% load humanize partition %}
+
+{% load wagtailcore_tags %}
+
+{% block head_title %}{{ block.super }} | Home{% endblock %}
+{% block head_meta_description %}{% endblock %}
+{% block body_id %}homepage{% endblock %}
+
+{% block content_container %}
+    {#    TODO: Figure out why this comment is necessary to display everything below#}
+    <!-- -->
+    <div class="parent-container">
+            <nav class="homepage-nav" id="nav">
+                    <div class="container">
+                        <ul>
+                            <li>
+                                <a class='nav-link' href="#our-goal">Our Goal</a>
+                            </li>
+                            <li>
+                                <a class='nav-link' href="#what-we-offer">What We Offer</a>
+                            </li>
+                            <li>
+                                <a id="critical-questions-nav" class='nav-link' href="#tabs">Critical Questions</a>
+                            </li>
+                            <li>
+                                <a id="explore-nav" class='nav-link' href="#tabs">Explore</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a id="topics-nav" class='nav-link' href="#tabs">Topics</a>
+                            </li>
+                            <li>
+                                <a class='nav-link' href="#additional-resources">Additional Resources</a>
+                            </li>
+                            <li>
+                                <a class='nav-link' href="gallery/">Custom Profile Gallery</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+        <div class="main-container">
+    <div class="c-intro-panel">
+        {% comment %} <h1 class="body-text-UC">We're working to add and update datasets at the moment, so please pardon any slow or unexpected behavior. Thank you!</h1> {% endcomment %}
+      <div class="c-intro-panel-color">
+        <header>
+            <h1>{{ page.title }}</h1>
+        </header>
+      </div>
+        <main>
+            <p class="body-text">{{ page.intro }}</p>
+        </main>
+    </div>
+    <div class="c-map-panel">
+      <div class="section">
+        <h2 class="subhead">I want to learn about a...</h2>
+        <div class="options">
+          <div>
+            <a href="/draw">
+              <img src="{{ STATIC_URL }}img/geographic-select.png" alt="">
+                <h3>Geographic Area</h3>
+            </a>
+            <p class="body-text">{{ page.geographic_area_text }}</p>
+          </div>
+          <div>
+            <a href="https://parceltool.datadrivendetroit.org">
+              <img src="{{ STATIC_URL }}img/geographic-select.png" alt="">
+                <h3>Parcel ID or Address</h3>
+            </a>
+            <p class="body-text">{{ page.parcel_id_text }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="c-IAB-panel">
+      <div class="section">
+        {{ page.info_for_action_top|richtext }}
+        <ul>
+          <li>
+            <a href="{% slugurl 'what-does-affordability-mean-detroit' %}">
+              <div class="image-holder">
+                <img class="icon" src="{{ STATIC_URL }}img/inclusive-growth-icon.png" />
+              </div>
+              <h3>Housing Affordability</h3>
+            </a>
+          </li>
+          <li>
+            <a href="{% slugurl 'what-do-we-know-about-tax-foreclosures-and-evictions-detroit' %}">
+              <div class="image-holder">
+                <img class="icon" src="{{ STATIC_URL }}img/michigan-market-icon.png" />
+              </div>
+              <h3>Tax Foreclosure and Eviction</h3>
+            </a>
+          </li>
+          <li>
+            <a href="{% slugurl 'what-do-we-know-about-demolitions' %}">
+              <div class="image-holder">
+                <img class="icon" src="{{ STATIC_URL }}img/demolition-icon.png" />
+              </div>
+              <h3>Demolitions</h3>
+            </a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="{% slugurl 'how-did-detroits-current-housing-situation-come-about' %}">
+              <div class="image-holder">
+                <img class="icon" src="{{ STATIC_URL }}img/housing-market-icon.png" />
+              </div>
+              <h3>How did Detroit’s current housing situation come about?</h3>
+            </a>
+          </li>
+          <li>
+            <a href="{% slugurl 'covid-19-housing-resources' %}">
+              <div class="image-holder">
+                <img class="icon" src="{{ STATIC_URL }}img/D3_HIP_Category-Icon_COVID-19-01.png" />
+              </div>
+              <h3>COVID-19 Housing Resources for Detroit</h3>
+            </a>
+          </li>
+        </ul>
+        {{ page.info_for_action_bottom|richtext }}
+      </div>
+    </div>
+    <div class="c-studies-panel" id="what-we-offer">
+        <div class="section">
+          {{ page.official_program_reports|richtext }}
+        </div>
+    </div>
+    <div class="c-additional-resources-panel" id="additional-resources">
+      <div class="section">
+        {{ page.other_resources_header|richtext }}
+        <ul>
+          <li>
+            <a href="https://datadrivendetroit.org/products">
+              <div class="image-holder">
+                <img class="icon" src="{{ STATIC_URL }}img/map-icon.png" />
+              </div>
+              <h3>Maps</h3>
+            </a>
+          </li>
+          <li>
+            <a href="https://datadrivendetroit.org/?s=housing&et_pb_searchform_submit=et_search_proccess&et_pb_search_cat=572%2C571&et_pb_include_posts=yes">
+              <div class="image-holder">
+                <img class="icon" src="{{ STATIC_URL }}img/news-icon.png" />
+              </div>
+              <h3>Blogs</h3>
+            </a>
+          </li>
+          <li>
+            <a href="https://portal.datadrivendetroit.org/search?q=housing">
+              <div class="image-holder">
+                <img class="icon" src="{{ STATIC_URL }}img/ffiec-icon.png" />
+              </div>
+              <h3>Data</h3>
+            </a>
+          </li>
+          <li>
+            <a href="https://datadrivendetroit.org/products">
+              <div class="image-holder">
+                  <img class="icon" src="{{ STATIC_URL }}img/blog-icon.png" />
+              </div>
+              <h3>Reports</h3>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+        <div class="l-flex-space-between">
+          <ul id=footer-nav>
+            <li><a href="{% url 'homepage' %}">Home</a></li>
+            <li><a href="{% url 'draw' %}">Map</a></li>
+            <li><a href="{% slugurl 'info-action-briefs' %}">Information<br />Action Briefs</a></li>
+            {% comment %} <li><a href="#">Official<br />Program Reports</a></li> {% endcomment %}
+            <li><a href="https://datadrivendetroit.org/?s=housing&et_pb_searchform_submit=et_search_proccess&et_pb_search_cat=572%2C571&et_pb_include_posts=yes">Blog</a></li>
+          </ul>
+          <div class="details">
+              {{ page.footer_top|richtext }}
+              <a href="https://kresge.org/">
+                <div class="l-flex-align-flex-end skillman">
+                  <img src="/static/img/kresge_logo.jpg">
+                  <p class="body-text">Supported by The Kresge Foundation</p>
+                </div>
+              </a>
+              {{ page.footer_bottom|richtext }}
+          </div>
+          <div class="footer-logos">
+            <ul>
+              <li>
+                <a href="http://datadrivendetroit.org/">
+                    <img class="company-logo" src="{{ STATIC_URL }}img/DataDrivenDetroit-LogoColor.svg" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+
+
+{% endblock %}
+
+{% block body_javascript_extra %}
+    <script>
+        // show 'use my current location' button
+        if (Modernizr.geolocation) {
+            $('.geolocate-only').show();
+        }
+    </script>
+    <script src="{{ STATIC_URL }}js/data.query.builder.js"></script>
+{% endblock %}

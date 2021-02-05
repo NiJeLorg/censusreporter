@@ -9,15 +9,14 @@
         <title>{% block head_title %}Housing Information Portal | Data Driven Detroit{% endblock %}</title>
         <meta name="description" content="{% block head_meta_description %}{% endblock %}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% block head_css %}
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="{{ STATIC_URL }}css/vendor/normalize.min.css">
         <link rel="stylesheet" href="{{ STATIC_URL }}css/app.css">
         <link rel="stylesheet" href="{{ STATIC_URL }}css/new_homepage.css">
-        {% block head_css_extra %}{% endblock %}{% endblock head_css %}
-        {% block head_javascript %}
+        {% block head_css %}{% endblock head_css %}
+
         <script src="//cdn.jsdelivr.net/g/modernizr@2.7,respond@1.4"></script>
-        {% block head_javascript_extra %}{% endblock %}{% endblock %}
+        {% block head_javascript %}{% endblock %}
         <!-- Begin Google Analytics -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112269884-7"></script>
@@ -43,25 +42,14 @@
     </head>
     <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
         <div class="corner-ribbon">Beta</div>
-        {% block body %}
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        {% block header %}
 
-        <!-- {% block header_content %}{% endblock header_content %}
-        {% endblock %} -->
+        {% block content_container %}{% endblock %}
 
-        <!-- {% block content_container %}
-        <div class="content-container wrapper clearfix">
-            {% block content %}{% endblock %}
-        </div>
-        {% endblock %}
-
-        {% endblock body %}
-
-        {% block body_javascript %}
+        
         <!--[if gte IE 9]><!-->
         <script src="//cdn.jsdelivr.net/g/jquery@2.1,d3js@3.4,typeahead.js@0.11.1(typeahead.bundle.min.js),underscorejs@1.6,spinjs@1.3,handlebarsjs@1.3(handlebars.min.js)"></script>
         <!--<![endif]-->
@@ -87,6 +75,6 @@
         <script src="{{ STATIC_URL }}js/new_homepage.js"></script>
         <script src="{{ STATIC_URL }}js/glossary.js"></script>
         <script src="{{ STATIC_URL }}js/widget.geo.select.js"></script>
-        {% block body_javascript_extra %}{% endblock %}{% endblock body_javascript %}
+        {% block body_javascript_extra %}{% endblock %}
     </body>
 </html>

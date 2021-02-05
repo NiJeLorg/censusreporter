@@ -22,7 +22,7 @@ from django.contrib import messages
 from django.urls import reverse
 from django.db.models import Q
 from django.http import HttpResponse, Http404, HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.template import loader, TemplateDoesNotExist, RequestContext
 import json
 from django.utils.safestring import SafeString
@@ -2758,6 +2758,9 @@ class DataView(TemplateView):
 
 		return page_context
 
+
+def NewHomepageView(request):
+	return redirect('/pages/home/')
 
 class HomepageView(TemplateView):
 	template_name = 'new_homepage.html'

@@ -13,7 +13,7 @@ from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from .utils import GEOGRAPHIES_MAP
-from .views import (HomepageView, GeographyDetailView, TimeSeriesGeographyDetailView, CustomGeographyDetailView, DistrictGeographyDetailView, GeographySearchView,
+from .views import (NewHomepageView, HomepageView,GeographyDetailView, TimeSeriesGeographyDetailView, CustomGeographyDetailView, DistrictGeographyDetailView, GeographySearchView,
     D3TableDetailViewBirths, D3TableDetailViewELAProficiency, D3TableDetailViewMathProficiency, D3TableDetailViewGraduationRates, D3TableDetailViewInfantMortality, D3TableDetailViewImmunization, D3TableDetailViewMedicaid, D3TableDetailViewChildCareCenters, D3TableDetailViewChildCarePrograms, D3TableDetailViewChildCareCapacity, D3TableDetailViewFreeReducedLunch, D3TableDetailViewCollegeReadiness, D3TableDetailViewCollegeEnrollment, D3TableDetailViewLeadBloodLevels, D3TableDetailViewStudentMobility, D3TableDetailViewChronicAbsenteeism, D3TableDetailView8thGradeMath, TableDetailView, TableSearchView, PlaceSearchJson, GeoSearch,
     HealthcheckView, DataView, TopicView, ExampleView, Elasticsearch,
     MakeJSONView, SitemapTopicsView, SearchResultsView, make_dashboard, CustomDrawnProfilesView, DrawProfilesView)
@@ -23,12 +23,13 @@ COMPARISON_FORMATS = 'map|table|distribution'
 BLOCK_ROBOTS = getattr(settings, 'BLOCK_ROBOTS', False)
 
 urlpatterns = [
-    path(
-        route   = '',
-        view    = cache_page(STANDARD_CACHE_TIME)(HomepageView.as_view()),
-        kwargs  = {},
-        name    = 'homepage',
-    ),
+    path('', NewHomepageView, name='homepage'),
+    # path(
+    #     route   = '',
+    #     view    = cache_page(STANDARD_CACHE_TIME)(HomepageView.as_view()),
+    #     kwargs  = {},
+    #     name    = 'homepage',
+    # ),
 
     # e.g. /profiles/16000US5367000/ (Spokane, WA)
     # this should redirect to slugged version of the URL above
