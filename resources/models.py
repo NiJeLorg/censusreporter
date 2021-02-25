@@ -139,7 +139,11 @@ class HomePage(Page):
     parcel_id_text = models.CharField(max_length=1000)
     info_for_action_top = RichTextField(blank=True)
     info_for_action_bottom = RichTextField(blank=True)
-    official_program_reports = RichTextField(blank=True)
+    whos_working_on_what = RichTextField(blank=True)
+    detroit_housing_tools_header = RichTextField(blank=True)
+    detroit_housing_tools = RichTextField(blank=True)
+    national_housing_tools_header = RichTextField(blank=True)
+    national_housing_tools = RichTextField(blank=True)
     other_resources = RichTextField(blank=True)
     footer_top = RichTextField(blank=True)
     footer_bottom = RichTextField(blank=True)
@@ -150,7 +154,11 @@ class HomePage(Page):
         FieldPanel('parcel_id_text', classname="full"),
         FieldPanel('info_for_action_top', classname="full"),
         FieldPanel('info_for_action_bottom', classname="full"),
-        FieldPanel('official_program_reports', classname="full"),
+        FieldPanel('whos_working_on_what', classname="full"),
+        FieldPanel('detroit_housing_tools_header', classname="full"),
+        FieldPanel('detroit_housing_tools', classname="full"),
+        FieldPanel('national_housing_tools_header', classname="full"),
+        FieldPanel('national_housing_tools', classname="full"),
         FieldPanel('other_resources', classname="full"),
         FieldPanel('footer_top', classname="full"),
         FieldPanel('footer_bottom', classname="full"),

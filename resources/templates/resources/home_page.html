@@ -7,39 +7,6 @@
 {% block body_id %}homepage{% endblock %}
 
 {% block content_container %}
-    {#    TODO: Figure out why this comment is necessary to display everything below#}
-    <!-- -->
-    <div class="parent-container">
-            <nav class="homepage-nav" id="nav">
-                    <div class="container">
-                        <ul>
-                            <li>
-                                <a class='nav-link' href="#our-goal">Our Goal</a>
-                            </li>
-                            <li>
-                                <a class='nav-link' href="#what-we-offer">What We Offer</a>
-                            </li>
-                            <li>
-                                <a id="critical-questions-nav" class='nav-link' href="#tabs">Critical Questions</a>
-                            </li>
-                            <li>
-                                <a id="explore-nav" class='nav-link' href="#tabs">Explore</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <a id="topics-nav" class='nav-link' href="#tabs">Topics</a>
-                            </li>
-                            <li>
-                                <a class='nav-link' href="#additional-resources">Additional Resources</a>
-                            </li>
-                            <li>
-                                <a class='nav-link' href="gallery/">Custom Profile Gallery</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-        <div class="main-container">
     <div class="c-intro-panel">
         {% comment %} <h1 class="body-text-UC">We're working to add and update datasets at the moment, so please pardon any slow or unexpected behavior. Thank you!</h1> {% endcomment %}
       <div class="c-intro-panel-color">
@@ -122,9 +89,40 @@
         {{ page.info_for_action_bottom|richtext }}
       </div>
     </div>
-    <div class="c-studies-panel" id="what-we-offer">
+    <div class="c-studies-panel">
+        <div class="section flex-section">
+          <div class="left">
+            {{ page.whos_working_on_what|richtext }}
+          </div>
+          <div class="right">
+            <img class="icon" src="{{ STATIC_URL }}img/network-map_full.png" />
+          </div>
+        </div>
+    </div>
+    <div class="c-additional-resources-panel">
+      <div class="section">
+        {{ page.detroit_housing_tools_header|richtext }}
+          <div class="flex-section">
+            <div class="left">
+              <img class="icon" src="{{ STATIC_URL }}img/detroit-centric-tools_background.png" />
+            </div>
+            <div class="right">
+              {{ page.detroit_housing_tools|richtext }}
+            </div>   
+          </div>     
+      </div>
+    </div>
+    <div class="c-IAB-panel">
         <div class="section">
-          {{ page.official_program_reports|richtext }}
+        {{ page.national_housing_tools_header|richtext }}
+          <div class="flex-section">
+            <div class="left">
+              {{ page.national_housing_tools|richtext }}
+            </div>
+            <div class="right">
+              <img class="icon" src="{{ STATIC_URL }}img/national-data_us-map.png" />
+            </div>
+          </div>
         </div>
     </div>
     <div class="c-additional-resources-panel" id="additional-resources">
@@ -155,14 +153,14 @@
               <h3>Data</h3>
             </a>
           </li>
-          <li>
+          {% comment %} <li>
             <a href="https://datadrivendetroit.org/products">
               <div class="image-holder">
                   <img class="icon" src="{{ STATIC_URL }}img/blog-icon.png" />
               </div>
               <h3>Reports</h3>
             </a>
-          </li>
+          </li> {% endcomment %}
         </ul>
       </div>
     </div>

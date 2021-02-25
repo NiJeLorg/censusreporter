@@ -249,6 +249,19 @@ nav .container {
     margin: 0 auto;
 }
 
+.flex-section {
+    display: flex;
+}
+
+.left{
+    flex: 0 0 50%;
+}
+
+.right{
+    margin-left: 50px;
+    flex: 1;
+}
+
 .c-map-panel .options {
   display: flex;
   flex-flow: row wrap;
