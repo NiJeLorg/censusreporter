@@ -1065,7 +1065,7 @@ section#explore-topic-place-picker h1.article-header{
 #cover-map {
     position: relative;
     height: 35em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 #slippy-map {
     position: absolute;
@@ -3967,3 +3967,9 @@ a.ui-button:active,
   font-size: 1.4em;
   margin: .5em 0;
 }
+
+.download-pdf-button {
+    float: right;
+    margin-bottom: 20px;
+    margin-right: 10px;
+} 
