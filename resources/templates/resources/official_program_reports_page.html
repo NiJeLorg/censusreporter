@@ -18,7 +18,6 @@
 {% block content %}
     <div class="content-container wrapper clearfix">
         <h1>{{ page.title }}</h1>
-        <div class="intro">{{ page.intro }}</div>
         <div class="intro">{{ page.body|richtext }}</div>
         <a id="return" href="{{ page.get_parent.url }}"><i class="fas fa-arrow-left"></i> Return to Action Briefs</a>
     </div>
