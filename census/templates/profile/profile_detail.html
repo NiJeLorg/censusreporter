@@ -779,7 +779,8 @@ var makeCharts = function() {
             chartStatType = $(this).data('stat-type'),
             chartQualifier = $(this).data('qualifier') || null,
             geographyData = profileData['geography'],
-            chartRelease = 'latest';
+            //chartRelease = 'latest';
+            chartRelease = 'acs2018_5yr';
 
         // allow arbitrary nesting in API data structure
         var drilldown = chartDataID.length - 1;

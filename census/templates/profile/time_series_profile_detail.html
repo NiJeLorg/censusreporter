@@ -846,8 +846,10 @@ var makeCharts = function() {
             chartPrecision = $(this).data('precision'),
             chartLabel = $(this).data('label'),
             geographyData = profileData['geography'],
-            chartRelease = 'latest',
-            chartColorScale;
+            chartColorScale = '',
+            //chartRelease = 'latest';
+            chartRelease = 'acs2018_5yr';
+            
 
         // toggle color scale if new section
         if ($(this).parents('.alt').length > 0) {
