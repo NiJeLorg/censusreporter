@@ -684,12 +684,13 @@ $.ajaxSetup({
 });
 
 // Make the header map
+var map;
 d3.json(CR_API_URL + '/1.0/geo/tiger2018/{{ profile_data_current_year.geography.this.full_geoid }}?geom=true', function(error, json) {
     if (error) return console.warn(error);
     var allowMapDrag = (browserWidth > 480) ? true : false;
 
     // draw a geom
-    var map = L.map('slippy-map', {
+    map = L.map('slippy-map', {
         scrollWheelZoom: false,
         zoomControl: false,
         doubleClickZoom: false,
