@@ -75,7 +75,7 @@
 {% endblock %}
 
 {% block content %}
-<section class="clearfix column-half" id="query-topic-picker">
+<section class="clearfix column-full" id="query-topic-picker">
     <h2>Jump to a section: </h2>
     <div class="typeahead-container">
         <select name="select_section" onchange="location = this.value;" style="width: 100%;">
@@ -119,12 +119,12 @@
         </select>
     </div>
 </section>
-<section class="clearfix column-half" id="query-topic-picker">
+{% comment %} <section class="clearfix column-half" id="query-topic-picker">
     <h2>Find data for this place</h2>
     <div class="typeahead-container">
         <input name="topic_select" id="topic-select" type="text" placeholder="Search by table or column name..." autocomplete="off">
     </div>
-</section>
+</section> {% endcomment %}
 
 <p class="explain">Interact with charts and statistics for <span class="glossary-term" data-keyword="margin-of-error">margins of error</span> and additional information.</p>
 
@@ -692,7 +692,8 @@ var Charts = {},
     profileDataPastYear = {{ profile_data_json_past_year }},
     years = [];
     years[0] = '{{ past_year }}';
-    years[1] = '{{ current_year }}';
+    years[1] = '{{ current_year }}',
+    latestWorkingRelease = 'acs2018_5yr';
 
 // TO DO: Update to include time series charts
 var gracefulType = function(chartType) {
@@ -727,8 +728,7 @@ var makeCharts = function() {
             chartLabel = $(this).data('label'),
             geographyData = profileData['geography'],
             chartColorScale = '',
-            //chartRelease = 'latest';
-            chartRelease = 'acs2018_5yr';
+            chartRelease = latestWorkingRelease;
 
         // toggle color scale if new section
         if ($(this).parents('.alt').length > 0) {
